@@ -41,3 +41,12 @@ vim.opt.foldenable = false
 if vim.fn.executable("par") == 1 then
   vim.opt.formatprg = "par -w65"
 end
+
+-- Markdown
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.linebreak = true
+  end,
+})
